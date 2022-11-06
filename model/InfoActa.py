@@ -16,6 +16,7 @@ class InfoActa:
         self.fecha_acta = ""
         self.nombre_trabajo = ""
         self.tipo_trabajo = ""
+        self.fecha_de_presentacion = " "
         self.director = ""
         self.codirector = " "
         self.jurado1 = ""

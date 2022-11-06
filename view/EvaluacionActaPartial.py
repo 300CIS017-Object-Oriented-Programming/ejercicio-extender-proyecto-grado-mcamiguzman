@@ -11,6 +11,7 @@ def agregar_acta(st, controlador):
     st.title("Generación De Actas")
     col1, col2, col3 = st.columns(3)
     col5, col6, col7, col8 = st.columns(4)
+    col9=st.columns(5)
     # Objeto que modelará el formulario
     info_acta_obj = InfoActa(controlador.criterios)
     info_acta_obj.fecha_acta = datetime.today().strftime('%Y-%m-%d')
@@ -28,6 +29,8 @@ def agregar_acta(st, controlador):
         info_acta_obj.jurado1 = st.text_input("Jurado #1")
     with col8:
         info_acta_obj.jurado2 = st.text_input("Jurado #2")
+    with col9:
+        info_acta_obj.fecha_de_presentacion = st.text_input("fecha de presentacion")
     enviado_btn = st.button("Enviar")
 
     # Cuando se oprime el botón se agrega a la lista
@@ -57,6 +60,7 @@ def ver_historico_acta(st, controlador):
         col1, col2, col3, col4 = st.columns(4)
         col5, col6, col7, col8 = st.columns(4)
         col9, col10 = st.columns(2)
+        col11 = st.columns(4)
         with col1:
             st.write("**Autor**")
             st.write(acta.autor)
@@ -81,6 +85,9 @@ def ver_historico_acta(st, controlador):
         with col8:
             st.write("**Jurado #2**")
             st.write(acta.jurado2)
+        with col11:
+            st.write("**Fecha de presentacion**")
+            st.write(acta.fecha_de_presentacion)
         with col9:
             st.write("**Nota Final**")
             if not acta.estado:
